@@ -14,6 +14,7 @@
 		355646891D2D746800168E48 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355646881D2D746800168E48 /* LocalAuthentication.framework */; };
 		3556468C1D2D7A6D00168E48 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3556468B1D2D7A6D00168E48 /* RealmHelper.swift */; };
 		3556468E1D2D7C6800168E48 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3556468D1D2D7C6800168E48 /* Account.swift */; };
+		355646921D2D810400168E48 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646911D2D810400168E48 /* AccountTableViewController.swift */; };
 		3A0017750AB749889A529072 /* Pods_Passlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		355646881D2D746800168E48 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		3556468B1D2D7A6D00168E48 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		3556468D1D2D7C6800168E48 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = ../Account.swift; sourceTree = "<group>"; };
+		355646911D2D810400168E48 /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.release.xcconfig"; sourceTree = "<group>"; };
 		B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Passlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC2E88FB6EB1E65CDD6D38D /* Pods-Passlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -49,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				355646881D2D746800168E48 /* LocalAuthentication.framework */,
-				3556468A1D2D7A2F00168E48 /* Helpers */,
 				355646751D2C7C9000168E48 /* Passlet */,
 				355646741D2C7C9000168E48 /* Products */,
 				67567EF2F4131E35979A6B49 /* Pods */,
@@ -68,9 +69,11 @@
 		355646751D2C7C9000168E48 /* Passlet */ = {
 			isa = PBXGroup;
 			children = (
+				355646901D2D80AD00168E48 /* Models */,
+				3556468F1D2D808200168E48 /* Controllers */,
+				3556468A1D2D7A2F00168E48 /* Helpers */,
 				355646761D2C7C9000168E48 /* AppDelegate.swift */,
 				3556467A1D2C7C9000168E48 /* Main.storyboard */,
-				3556468D1D2D7C6800168E48 /* Account.swift */,
 				3556467D1D2C7C9000168E48 /* Assets.xcassets */,
 				3556467F1D2C7C9000168E48 /* LaunchScreen.storyboard */,
 				355646821D2C7C9000168E48 /* Info.plist */,
@@ -84,6 +87,24 @@
 				3556468B1D2D7A6D00168E48 /* RealmHelper.swift */,
 			);
 			name = Helpers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3556468F1D2D808200168E48 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				355646911D2D810400168E48 /* AccountTableViewController.swift */,
+			);
+			name = Controllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		355646901D2D80AD00168E48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3556468D1D2D7C6800168E48 /* Account.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		67567EF2F4131E35979A6B49 /* Pods */ = {
@@ -227,6 +248,7 @@
 			files = (
 				355646771D2C7C9000168E48 /* AppDelegate.swift in Sources */,
 				3556468C1D2D7A6D00168E48 /* RealmHelper.swift in Sources */,
+				355646921D2D810400168E48 /* AccountTableViewController.swift in Sources */,
 				3556468E1D2D7C6800168E48 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

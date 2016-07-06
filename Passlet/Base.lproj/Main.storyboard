@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="aeI-A4-nGB" kind="show" id="2Jk-M2-hqz"/>
+                        <segue destination="aeI-A4-nGB" kind="relationship" relationship="rootViewController" id="fEG-Uo-sCo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIM-79-PMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,7 +25,7 @@
         <!--Title-->
         <scene sceneID="FMl-pn-hdr">
             <objects>
-                <tableViewController id="aeI-A4-nGB" sceneMemberID="viewController">
+                <tableViewController id="aeI-A4-nGB" customClass="AccountTableViewController" customModule="Passlet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5WL-dS-rDd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="syY-tz-tZe">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="weo-Fc-rXQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="weo-Fc-rXQ">
+                            <connections>
+                                <action selector="createNewAccount:" destination="aeI-A4-nGB" id="Ibq-2I-hE0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyB-ep-3sV" userLabel="First Responder" sceneMemberID="firstResponder"/>
