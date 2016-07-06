@@ -38,6 +38,7 @@ class AddAccountViewController: UIViewController {
                 account.password = currPW
             }
         }
+        RealmHelper.addAccount(account)
         accountTableViewController.accounts = RealmHelper.retrieveAccounts()
         
     }
@@ -55,6 +56,7 @@ class AddAccountViewController: UIViewController {
         
         passwordTextField.text = String(randomString)
     }
+    
     /*
     // MARK: - Navigation
 
