@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		355646771D2C7C9000168E48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646761D2C7C9000168E48 /* AppDelegate.swift */; };
-		355646791D2C7C9000168E48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646781D2C7C9000168E48 /* ViewController.swift */; };
 		3556467C1D2C7C9000168E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3556467A1D2C7C9000168E48 /* Main.storyboard */; };
 		3556467E1D2C7C9000168E48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3556467D1D2C7C9000168E48 /* Assets.xcassets */; };
 		355646811D2C7C9000168E48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3556467F1D2C7C9000168E48 /* LaunchScreen.storyboard */; };
+		355646891D2D746800168E48 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355646881D2D746800168E48 /* LocalAuthentication.framework */; };
+		3556468C1D2D7A6D00168E48 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3556468B1D2D7A6D00168E48 /* RealmHelper.swift */; };
+		3556468E1D2D7C6800168E48 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3556468D1D2D7C6800168E48 /* Account.swift */; };
+		3A0017750AB749889A529072 /* Pods_Passlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		355646731D2C7C9000168E48 /* Passlet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passlet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		355646761D2C7C9000168E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		355646781D2C7C9000168E48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3556467B1D2C7C9000168E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3556467D1D2C7C9000168E48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		355646801D2C7C9000168E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		355646821D2C7C9000168E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		355646881D2D746800168E48 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		3556468B1D2D7A6D00168E48 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		3556468D1D2D7C6800168E48 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = ../Account.swift; sourceTree = "<group>"; };
+		4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.release.xcconfig"; sourceTree = "<group>"; };
+		B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Passlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCC2E88FB6EB1E65CDD6D38D /* Pods-Passlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355646891D2D746800168E48 /* LocalAuthentication.framework in Frameworks */,
+				3A0017750AB749889A529072 /* Pods_Passlet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +48,12 @@
 		3556466A1D2C7C9000168E48 = {
 			isa = PBXGroup;
 			children = (
+				355646881D2D746800168E48 /* LocalAuthentication.framework */,
+				3556468A1D2D7A2F00168E48 /* Helpers */,
 				355646751D2C7C9000168E48 /* Passlet */,
 				355646741D2C7C9000168E48 /* Products */,
+				67567EF2F4131E35979A6B49 /* Pods */,
+				A81CBC388EBB2627D7D5D9D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +69,38 @@
 			isa = PBXGroup;
 			children = (
 				355646761D2C7C9000168E48 /* AppDelegate.swift */,
-				355646781D2C7C9000168E48 /* ViewController.swift */,
 				3556467A1D2C7C9000168E48 /* Main.storyboard */,
+				3556468D1D2D7C6800168E48 /* Account.swift */,
 				3556467D1D2C7C9000168E48 /* Assets.xcassets */,
 				3556467F1D2C7C9000168E48 /* LaunchScreen.storyboard */,
 				355646821D2C7C9000168E48 /* Info.plist */,
 			);
 			path = Passlet;
+			sourceTree = "<group>";
+		};
+		3556468A1D2D7A2F00168E48 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3556468B1D2D7A6D00168E48 /* RealmHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		67567EF2F4131E35979A6B49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BCC2E88FB6EB1E65CDD6D38D /* Pods-Passlet.debug.xcconfig */,
+				4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A81CBC388EBB2627D7D5D9D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 355646851D2C7C9000168E48 /* Build configuration list for PBXNativeTarget "Passlet" */;
 			buildPhases = (
+				24781E85F687B86349D70F83 /* [CP] Check Pods Manifest.lock */,
 				3556466F1D2C7C9000168E48 /* Sources */,
 				355646701D2C7C9000168E48 /* Frameworks */,
 				355646711D2C7C9000168E48 /* Resources */,
+				44A5F9114D0BCA0E24477BCE /* [CP] Embed Pods Frameworks */,
+				DB8D1B2E49DDFE8CB9335E12 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,13 +172,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24781E85F687B86349D70F83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		44A5F9114D0BCA0E24477BCE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Passlet/Pods-Passlet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB8D1B2E49DDFE8CB9335E12 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Passlet/Pods-Passlet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3556466F1D2C7C9000168E48 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				355646791D2C7C9000168E48 /* ViewController.swift in Sources */,
 				355646771D2C7C9000168E48 /* AppDelegate.swift in Sources */,
+				3556468C1D2D7A6D00168E48 /* RealmHelper.swift in Sources */,
+				3556468E1D2D7C6800168E48 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +338,7 @@
 		};
 		355646861D2C7C9000168E48 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCC2E88FB6EB1E65CDD6D38D /* Pods-Passlet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Passlet/Info.plist;
@@ -258,6 +350,7 @@
 		};
 		355646871D2C7C9000168E48 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Passlet/Info.plist;
@@ -286,6 +379,7 @@
 				355646871D2C7C9000168E48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
