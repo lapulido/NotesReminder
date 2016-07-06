@@ -34,30 +34,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cd5-uC-LjS">
-                                <rect key="frame" x="258" y="152" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cd5-uC-LjS">
+                                <rect key="frame" x="213" y="140" width="175" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="LId-Q1-Gsq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-Bz-Vmb">
-                                <rect key="frame" x="258" y="190" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-Bz-Vmb">
+                                <rect key="frame" x="213" y="178" width="175" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="13t-hU-vau">
-                                <rect key="frame" x="258" y="228" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="13t-hU-vau">
+                                <rect key="frame" x="213" y="216" width="175" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3T-1b-1pm">
-                                <rect key="frame" x="277" y="300" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3T-1b-1pm">
+                                <rect key="frame" x="206" y="272" width="188" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="7Wc-6E-h8Y"/>
+                                </constraints>
+                                <state key="normal" title="Generate New Password"/>
                                 <connections>
                                     <action selector="generateNewPassword:" destination="MvB-Ma-XZK" eventType="touchUpInside" id="pBj-ji-hg3"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="13t-hU-vau" firstAttribute="centerX" secondItem="z3T-1b-1pm" secondAttribute="centerX" id="0zO-CU-6a6"/>
+                            <constraint firstItem="Cd5-uC-LjS" firstAttribute="leading" secondItem="ufp-Bz-Vmb" secondAttribute="leading" id="1bZ-ls-NJY"/>
+                            <constraint firstItem="Cd5-uC-LjS" firstAttribute="top" secondItem="5bs-Ts-ihK" secondAttribute="bottom" constant="76" id="5bd-iX-1Pw"/>
+                            <constraint firstItem="13t-hU-vau" firstAttribute="top" secondItem="ufp-Bz-Vmb" secondAttribute="bottom" constant="8" symbolic="YES" id="Jeg-fk-nDa"/>
+                            <constraint firstItem="ufp-Bz-Vmb" firstAttribute="leading" secondItem="13t-hU-vau" secondAttribute="leading" id="YeP-6c-055"/>
+                            <constraint firstItem="ufp-Bz-Vmb" firstAttribute="trailing" secondItem="13t-hU-vau" secondAttribute="trailing" id="bZU-cQ-iQV"/>
+                            <constraint firstItem="Cd5-uC-LjS" firstAttribute="centerX" secondItem="tNw-Z9-VyV" secondAttribute="centerX" id="iMo-Cw-A8M"/>
+                            <constraint firstItem="ufp-Bz-Vmb" firstAttribute="top" secondItem="Cd5-uC-LjS" secondAttribute="bottom" constant="8" symbolic="YES" id="msJ-Um-asL"/>
+                            <constraint firstItem="z3T-1b-1pm" firstAttribute="top" secondItem="13t-hU-vau" secondAttribute="bottom" constant="26" id="tE8-Zh-ArI"/>
+                            <constraint firstItem="Cd5-uC-LjS" firstAttribute="trailing" secondItem="ufp-Bz-Vmb" secondAttribute="trailing" id="vv8-5f-Abw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Ltx-G3-rD5">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ebx-je-iKa"/>
