@@ -15,6 +15,8 @@
 		3556468C1D2D7A6D00168E48 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3556468B1D2D7A6D00168E48 /* RealmHelper.swift */; };
 		3556468E1D2D7C6800168E48 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3556468D1D2D7C6800168E48 /* Account.swift */; };
 		355646921D2D810400168E48 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646911D2D810400168E48 /* AccountTableViewController.swift */; };
+		355646951D2D9F6000168E48 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646941D2D9F6000168E48 /* AccountTableViewCell.swift */; };
+		355646971D2DA72C00168E48 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646961D2DA72C00168E48 /* AddAccountViewController.swift */; };
 		3A0017750AB749889A529072 /* Pods_Passlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		3556468B1D2D7A6D00168E48 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		3556468D1D2D7C6800168E48 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = ../Account.swift; sourceTree = "<group>"; };
 		355646911D2D810400168E48 /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		355646941D2D9F6000168E48 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		355646961D2DA72C00168E48 /* AddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.release.xcconfig"; sourceTree = "<group>"; };
 		B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Passlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC2E88FB6EB1E65CDD6D38D /* Pods-Passlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		355646751D2C7C9000168E48 /* Passlet */ = {
 			isa = PBXGroup;
 			children = (
+				355646931D2D9F4B00168E48 /* Views */,
 				355646901D2D80AD00168E48 /* Models */,
 				3556468F1D2D808200168E48 /* Controllers */,
 				3556468A1D2D7A2F00168E48 /* Helpers */,
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				355646911D2D810400168E48 /* AccountTableViewController.swift */,
+				355646961D2DA72C00168E48 /* AddAccountViewController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -105,6 +111,14 @@
 				3556468D1D2D7C6800168E48 /* Account.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		355646931D2D9F4B00168E48 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				355646941D2D9F6000168E48 /* AccountTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		67567EF2F4131E35979A6B49 /* Pods */ = {
@@ -249,6 +263,8 @@
 				355646771D2C7C9000168E48 /* AppDelegate.swift in Sources */,
 				3556468C1D2D7A6D00168E48 /* RealmHelper.swift in Sources */,
 				355646921D2D810400168E48 /* AccountTableViewController.swift in Sources */,
+				355646951D2D9F6000168E48 /* AccountTableViewCell.swift in Sources */,
+				355646971D2DA72C00168E48 /* AddAccountViewController.swift in Sources */,
 				3556468E1D2D7C6800168E48 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AccountTableViewController: UITableViewController {
     
     var myService:String = ""
     var myUsername:String = ""
     var myPassword:String = ""
+    
+    var accounts: Results<Account>! {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +29,7 @@ class AccountTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        accounts = RealmHelper.retrieveAccounts()
     }
 
     
@@ -31,7 +39,7 @@ class AccountTableViewController: UITableViewController {
     }
     
     
-    @IBAction func createNewAccount(sender: AnyObject) {
+    /*@IBAction func createNewAccount(sender: AnyObject) {
         
         let alertView = UIAlertController(title: "Create An Account", message: "", preferredStyle: .Alert)
         
@@ -99,7 +107,7 @@ class AccountTableViewController: UITableViewController {
     
     func saveAccountInfo() {
         
-    }
+    }*/
     
     
     
@@ -116,15 +124,23 @@ class AccountTableViewController: UITableViewController {
         return 0
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("accountTableViewCell", forIndexPath: indexPath) as! AccountTableViewCell
 
         // Configure the cell...
-
+        let row = indexPath.row
+        let currAcc = accounts[row]
+        
+        cell.accountLabel.text = currAcc.title
+        
+        
+        
+        
+        
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

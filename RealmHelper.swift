@@ -25,7 +25,7 @@ class RealmHelper {
         }
     }
     
-    static func retrieveAccount() -> Results<Account>{
+    static func retrieveAccounts() -> Results<Account>{
         let realm = try! Realm()
         return realm.objects(Account).sorted("title", ascending: false)
     }

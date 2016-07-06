@@ -23,6 +23,56 @@
             <point key="canvasLocation" x="93" y="312"/>
         </scene>
         <!--Title-->
+        <scene sceneID="tDS-PZ-7RL">
+            <objects>
+                <viewController id="MvB-Ma-XZK" customClass="AddAccountViewController" customModule="Passlet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5bs-Ts-ihK"/>
+                        <viewControllerLayoutGuide type="bottom" id="wLG-8v-Diy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tNw-Z9-VyV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cd5-uC-LjS">
+                                <rect key="frame" x="258" y="152" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-Bz-Vmb">
+                                <rect key="frame" x="258" y="190" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="13t-hU-vau">
+                                <rect key="frame" x="258" y="228" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3T-1b-1pm">
+                                <rect key="frame" x="277" y="300" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="generateNewPassword:" destination="MvB-Ma-XZK" eventType="touchUpInside" id="pBj-ji-hg3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Ltx-G3-rD5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ebx-je-iKa"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="passwordTextField" destination="13t-hU-vau" id="f8M-n2-QY6"/>
+                        <outlet property="serviceTextField" destination="Cd5-uC-LjS" id="cQJ-wZ-mSG"/>
+                        <outlet property="usernameTextField" destination="ufp-Bz-Vmb" id="NWJ-R6-3r5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uxw-2p-rMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574" y="-417"/>
+        </scene>
+        <!--Title-->
         <scene sceneID="FMl-pn-hdr">
             <objects>
                 <tableViewController id="aeI-A4-nGB" customClass="AccountTableViewController" customModule="Passlet" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +81,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qaU-la-pVk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qaU-la-pVk" customClass="AccountTableViewCell" customModule="Passlet" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qaU-la-pVk" id="XNE-V0-Ubc">
@@ -54,6 +104,10 @@
                                         <constraint firstItem="JeK-Gr-sMY" firstAttribute="leading" secondItem="XNE-V0-Ubc" secondAttribute="leadingMargin" id="DfX-ea-DOi"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="accountTableViewCell"/>
+                                <connections>
+                                    <outlet property="accountLabel" destination="JeK-Gr-sMY" id="FxT-MD-QIS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -65,6 +119,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="weo-Fc-rXQ">
                             <connections>
                                 <action selector="createNewAccount:" destination="aeI-A4-nGB" id="Ibq-2I-hE0"/>
+                                <segue destination="MvB-Ma-XZK" kind="show" identifier="AddAccount" id="kk1-mc-R7s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
