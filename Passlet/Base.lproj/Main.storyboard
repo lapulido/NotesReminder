@@ -93,7 +93,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxw-2p-rMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GaK-mJ-IaS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1602" y="-35"/>
+            <point key="canvasLocation" x="1602" y="312"/>
         </scene>
         <!--Title-->
         <scene sceneID="FMl-pn-hdr">
@@ -130,7 +130,7 @@
                                 <accessibility key="accessibilityConfiguration" identifier="accountTableViewCell"/>
                                 <connections>
                                     <outlet property="accountLabel" destination="JeK-Gr-sMY" id="FxT-MD-QIS"/>
-                                    <segue destination="5cO-Ds-wCB" kind="show" identifier="ShowAccount" id="TLr-an-YLu"/>
+                                    <segue destination="MvB-Ma-XZK" kind="show" identifier="UpdateAccount" id="cew-qa-IcA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -152,7 +152,7 @@
             </objects>
             <point key="canvasLocation" x="886" y="312"/>
         </scene>
-        <!--Show Account View Controller-->
+        <!--Title-->
         <scene sceneID="Ae7-BJ-g2Z">
             <objects>
                 <viewController id="5cO-Ds-wCB" customClass="ShowAccountViewController" customModule="Passlet" customModuleProvider="target" sceneMemberID="viewController">
@@ -237,13 +237,19 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Lsj-wf-uhY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Rgc-UZ-9xy"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="titleTextField" destination="blL-4y-guK" id="IfE-Ly-ECJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfW-BW-Aql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1602" y="688"/>
+            <point key="canvasLocation" x="1602" y="1062"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cew-qa-IcA"/>
+    </inferredMetricsTieBreakers>
 </document>

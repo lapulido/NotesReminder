@@ -14,6 +14,8 @@ class AddAccountViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var serviceTextField: UITextField!
     
+    var account: Account?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,18 +29,37 @@ class AddAccountViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let accountTableViewController = segue.destinationViewController as! AccountTableViewController
-        let account = Account()
-        account.title = serviceTextField.text ?? ""
-        account.username = usernameTextField.text ?? ""
-        if let password = passwordTextField.text {
-            account.password = password
-        }
-        else {
-            if let currPW = passwordTextField.text {
-                account.password = currPW
+        if segue.identifier == "UpdateAccount" {
+            if let account = account {
+                let newAccount = Account()
+                newAccount.title = serviceTextField.text ?? ""
+                newAccount.username = usernameTextField.text ?? ""
+                if let password = passwordTextField.text {
+                    newAccount.password = password
+                }
+                else {
+                    if let currentPW = passwordTextField.text {
+                        newAccount.password = currentPW
+                    }
+                }
+                RealmHelper.updateAccount(account, newAccount: newAccount)
             }
         }
-        RealmHelper.addAccount(account)
+        else if segue.identifier == "AddAccount" {
+            let account = Account()
+            account.title = serviceTextField.text ?? ""
+            account.username = usernameTextField.text ?? ""
+            if let password = passwordTextField.text {
+                account.password = password
+            }
+            else {
+                if let currentPW = passwordTextField.text {
+                    account.password = currentPW
+                }
+            }
+            RealmHelper.addAccount(account)
+        }
+        
         accountTableViewController.accounts = RealmHelper.retrieveAccounts()
         
     }
