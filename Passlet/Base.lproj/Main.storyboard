@@ -93,7 +93,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxw-2p-rMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GaK-mJ-IaS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1704" y="-77"/>
+            <point key="canvasLocation" x="1602" y="-35"/>
         </scene>
         <!--Title-->
         <scene sceneID="FMl-pn-hdr">
@@ -164,81 +164,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="blL-4y-guK">
-                                <rect key="frame" x="20" y="64" width="560" height="74"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="blL-4y-guK">
+                                <rect key="frame" x="20" y="104" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OSz-Cx-xls"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gNs-CY-3JV" userLabel="Super Stack View">
-                                <rect key="frame" x="20" y="150" width="560" height="300"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Bey-9v-lZr">
+                                <rect key="frame" x="150" y="270" width="300" height="60"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hol-Wf-Gad">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="150"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWM-jW-aJo">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOC-eO-7f6">
-                                                <rect key="frame" x="0.0" y="0.0" width="84" height="150"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rct-qR-MqW">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="2im-oY-JAw"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QKj-WU-k1F">
-                                                <rect key="frame" x="84" y="0.0" width="477" height="150"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VqZ-68-tKP">
+                                                <rect key="frame" x="100" y="0.0" width="200" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="Lz4-Oh-Qgn"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="OLU-sN-iyW"/>
-                                        </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2H-7s-bcm">
-                                        <rect key="frame" x="0.0" y="165" width="560" height="135"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="luO-9s-okP">
+                                        <rect key="frame" x="0.0" y="30" width="300" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZO-oQ-A4N">
-                                                <rect key="frame" x="0.0" y="0.0" width="83" height="135"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3W-lJ-Dtm">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="gw8-Fv-fW2"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WhZ-zc-vvv">
-                                                <rect key="frame" x="83" y="0.0" width="477" height="135"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m70-3V-yft">
+                                                <rect key="frame" x="100" y="0.0" width="200" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="3jG-oQ-Di0"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="J2H-7s-bcm" firstAttribute="leading" secondItem="gNs-CY-3JV" secondAttribute="leading" id="NNn-zV-Ucj"/>
-                                    <constraint firstAttribute="trailing" secondItem="Hol-Wf-Gad" secondAttribute="trailing" id="PES-s1-vYC"/>
-                                    <constraint firstItem="Hol-Wf-Gad" firstAttribute="centerX" secondItem="gNs-CY-3JV" secondAttribute="centerX" id="ScB-8v-T1C"/>
-                                    <constraint firstItem="Hol-Wf-Gad" firstAttribute="leading" secondItem="gNs-CY-3JV" secondAttribute="leading" id="kAe-XO-eYO"/>
-                                    <constraint firstItem="J2H-7s-bcm" firstAttribute="top" secondItem="Hol-Wf-Gad" secondAttribute="bottom" constant="15" id="ldF-UQ-wDb"/>
-                                    <constraint firstAttribute="height" constant="300" id="v3J-g7-nVx"/>
-                                    <constraint firstAttribute="trailing" secondItem="J2H-7s-bcm" secondAttribute="trailing" id="y73-zA-Xl5"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gNs-CY-3JV" firstAttribute="centerX" secondItem="zsS-Fg-xHg" secondAttribute="centerX" id="8aO-Pp-f0u"/>
-                            <constraint firstItem="gNs-CY-3JV" firstAttribute="leading" secondItem="zsS-Fg-xHg" secondAttribute="leadingMargin" id="KiD-IN-Vc8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="blL-4y-guK" secondAttribute="trailing" id="LJb-oO-bhW"/>
-                            <constraint firstItem="blL-4y-guK" firstAttribute="leading" secondItem="zsS-Fg-xHg" secondAttribute="leadingMargin" id="W9l-P4-2Kr"/>
-                            <constraint firstItem="blL-4y-guK" firstAttribute="centerX" secondItem="zsS-Fg-xHg" secondAttribute="centerX" id="nxH-mM-Dz9"/>
+                            <constraint firstItem="blL-4y-guK" firstAttribute="leading" secondItem="zsS-Fg-xHg" secondAttribute="leadingMargin" id="9Ag-OX-Pgn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="blL-4y-guK" secondAttribute="trailing" id="F6I-3O-0PV"/>
+                            <constraint firstItem="Bey-9v-lZr" firstAttribute="centerX" secondItem="zsS-Fg-xHg" secondAttribute="centerX" id="WZP-25-afd"/>
+                            <constraint firstItem="Bey-9v-lZr" firstAttribute="centerY" secondItem="zsS-Fg-xHg" secondAttribute="centerY" id="XBd-q1-Lq2"/>
+                            <constraint firstItem="blL-4y-guK" firstAttribute="top" secondItem="I1l-fp-DM9" secondAttribute="bottom" constant="40" id="i3S-XH-BWQ"/>
                             <constraint firstItem="ape-T6-xfI" firstAttribute="top" secondItem="blL-4y-guK" secondAttribute="bottom" constant="462" id="o7c-eQ-JTc"/>
-                            <constraint firstItem="gNs-CY-3JV" firstAttribute="centerY" secondItem="zsS-Fg-xHg" secondAttribute="centerY" id="wB2-9l-PpR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="o7c-eQ-JTc"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="passwordTextField" destination="WhZ-zc-vvv" id="v3n-34-mc3"/>
                         <outlet property="titleTextField" destination="blL-4y-guK" id="IfE-Ly-ECJ"/>
-                        <outlet property="usernameTextField" destination="QKj-WU-k1F" id="Mou-3e-Ahr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mfW-BW-Aql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704" y="680"/>
+            <point key="canvasLocation" x="1602" y="688"/>
         </scene>
     </scenes>
 </document>
