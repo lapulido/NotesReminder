@@ -25,6 +25,15 @@ class RealmHelper {
         }
     }
     
+    static func updateAccount(accountToBeUpdated: Account, newAccount: Account) {
+        let realm = try! Realm()
+        try! realm.write() {
+            accountToBeUpdated.title = newAccount.title
+            accountToBeUpdated.username = newAccount.username
+            accountToBeUpdated.password = newAccount.password
+        }
+    }
+    
     static func retrieveAccounts() -> Results<Account>{
         let realm = try! Realm()
         return realm.objects(Account).sorted("title", ascending: false)
