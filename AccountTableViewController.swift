@@ -48,6 +48,27 @@ class AccountTableViewController: UITableViewController {
     @IBAction func unwindToAccountViewController(segue: UIStoryboardSegue) {
         
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            if identifier == "UpdateAccount" {
+                print("Table view cell tapped")
+                
+                // 1
+                let indexPath = tableView.indexPathForSelectedRow!
+                // 2
+                let account = accounts[indexPath.row]
+                // 3
+                let addAccountViewController = segue.destinationViewController as! AddAccountViewController
+                // 4
+                addAccountViewController.account = account
+                
+            }
+            else if identifier == "AddAccount" {
+                print("+ button tapped")
+            }
+        }
+    }
+    
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

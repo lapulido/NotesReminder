@@ -29,7 +29,7 @@ class AddAccountViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let accountTableViewController = segue.destinationViewController as! AccountTableViewController
-        if segue.identifier == "UpdateAccount" {
+        if segue.identifier == "Save" {
             if let account = account {
                 let newAccount = Account()
                 newAccount.title = serviceTextField.text ?? ""
@@ -44,22 +44,22 @@ class AddAccountViewController: UIViewController {
                 }
                 RealmHelper.updateAccount(account, newAccount: newAccount)
             }
-        }
-        else if segue.identifier == "AddAccount" {
-            let account = Account()
-            account.title = serviceTextField.text ?? ""
-            account.username = usernameTextField.text ?? ""
-            if let password = passwordTextField.text {
-                account.password = password
-            }
             else {
-                if let currentPW = passwordTextField.text {
-                    account.password = currentPW
+                let account = Account()
+                account.title = serviceTextField.text ?? ""
+                account.username = usernameTextField.text ?? ""
+                if let password = passwordTextField.text {
+                    account.password = password
                 }
+                else {
+                    if let currentPW = passwordTextField.text {
+                        account.password = currentPW
+                    }
+                }
+                RealmHelper.addAccount(account)
+
             }
-            RealmHelper.addAccount(account)
         }
-        
         accountTableViewController.accounts = RealmHelper.retrieveAccounts()
         
     }
@@ -76,6 +76,23 @@ class AddAccountViewController: UIViewController {
         }
         
         passwordTextField.text = String(randomString)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        // 1
+        if let account = account {
+            // 2
+            serviceTextField.text = account.title
+            usernameTextField.text = account.username
+            passwordTextField.text = account.password
+        } else {
+            // 3
+            serviceTextField.text = ""
+            usernameTextField.text = ""
+            passwordTextField.text = ""
+
+        }
     }
     
     /*
