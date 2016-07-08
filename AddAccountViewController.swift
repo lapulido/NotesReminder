@@ -13,6 +13,7 @@ class AddAccountViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var serviceTextField: UITextField!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     var account: Account?
     
@@ -86,6 +87,9 @@ class AddAccountViewController: UIViewController {
             serviceTextField.text = account.title
             usernameTextField.text = account.username
             passwordTextField.text = account.password
+            if serviceTextField == "Facebook"{
+                iconImageView.image = UIImage()
+            }
         } else {
             // 3
             serviceTextField.text = ""

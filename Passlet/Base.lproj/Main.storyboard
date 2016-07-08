@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -62,6 +63,15 @@
                                     <action selector="generateNewPassword:" destination="MvB-Ma-XZK" eventType="touchUpInside" id="pBj-ji-hg3"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="unnamed" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-D9-yRC">
+                                <rect key="frame" x="200" y="325" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="JxR-cJ-gy9"/>
+                                    <constraint firstAttribute="height" constant="200" id="Vzf-Cr-Fib"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="ZcD-rq-gyu"/>
+                                    <constraint firstAttribute="width" secondItem="cOo-D9-yRC" secondAttribute="height" multiplier="1:1" id="jRy-Vx-n1i"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -69,6 +79,8 @@
                             <constraint firstItem="Cd5-uC-LjS" firstAttribute="leading" secondItem="ufp-Bz-Vmb" secondAttribute="leading" id="1bZ-ls-NJY"/>
                             <constraint firstItem="Cd5-uC-LjS" firstAttribute="top" secondItem="5bs-Ts-ihK" secondAttribute="bottom" constant="76" id="5bd-iX-1Pw"/>
                             <constraint firstItem="13t-hU-vau" firstAttribute="top" secondItem="ufp-Bz-Vmb" secondAttribute="bottom" constant="8" symbolic="YES" id="Jeg-fk-nDa"/>
+                            <constraint firstItem="cOo-D9-yRC" firstAttribute="top" secondItem="z3T-1b-1pm" secondAttribute="bottom" constant="23" id="NeL-bv-AVd"/>
+                            <constraint firstItem="cOo-D9-yRC" firstAttribute="centerX" secondItem="z3T-1b-1pm" secondAttribute="centerX" id="PZ3-8x-YTd"/>
                             <constraint firstItem="ufp-Bz-Vmb" firstAttribute="leading" secondItem="13t-hU-vau" secondAttribute="leading" id="YeP-6c-055"/>
                             <constraint firstItem="ufp-Bz-Vmb" firstAttribute="trailing" secondItem="13t-hU-vau" secondAttribute="trailing" id="bZU-cQ-iQV"/>
                             <constraint firstItem="Cd5-uC-LjS" firstAttribute="centerX" secondItem="tNw-Z9-VyV" secondAttribute="centerX" id="iMo-Cw-A8M"/>
@@ -85,6 +97,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="iconImageView" destination="cOo-D9-yRC" id="E6t-UU-yoU"/>
                         <outlet property="passwordTextField" destination="13t-hU-vau" id="f8M-n2-QY6"/>
                         <outlet property="serviceTextField" destination="Cd5-uC-LjS" id="cQJ-wZ-mSG"/>
                         <outlet property="usernameTextField" destination="ufp-Bz-Vmb" id="NWJ-R6-3r5"/>
@@ -93,7 +106,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxw-2p-rMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GaK-mJ-IaS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1602" y="312"/>
+            <point key="canvasLocation" x="1568" y="324"/>
         </scene>
         <!--Passlet-->
         <scene sceneID="FMl-pn-hdr">
@@ -249,6 +262,9 @@
             <point key="canvasLocation" x="1602" y="1062"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="unnamed" width="86" height="85"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cew-qa-IcA"/>
     </inferredMetricsTieBreakers>
