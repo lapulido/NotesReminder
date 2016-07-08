@@ -8,12 +8,15 @@
 
 import UIKit
 import RealmSwift
+import LocalAuthentication
 
-class AccountTableViewController: UITableViewController {
+class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     
     var myService:String = ""
     var myUsername:String = ""
     var myPassword:String = ""
+    
+    var currSegueId:String = ""
     
     var accounts: Results<Account>! {
         didSet {
@@ -23,6 +26,7 @@ class AccountTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        showPasswordAlert()
         accounts = RealmHelper.retrieveAccounts()
     }
     
@@ -69,6 +73,111 @@ class AccountTableViewController: UITableViewController {
         }
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        currSegueId = identifier
+        if authenticateUser() {
+            return true
+        } else {
+            return false
+        }
+        
+    }
+    
+    // Implementing Touch ID Functionality for security
+    // http://www.appcoda.com/touch-id-api-ios8/
+    func authenticateUser() -> Bool {
+        // Get the local authentication context.
+        let context : LAContext = LAContext()
+        
+        // Declare a NSError variable.
+        var error: NSError?
+        
+        // Set the reason string that will appear on the authentication alert.
+        var reasonString = "Authentication is needed to access your notes."
+        
+        var successAuth: Bool = false
+        
+        // Check if the device can evaluate the policy.
+        if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
+            [context .evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success: Bool, evalPolicyError: NSError?) -> Void in
+                
+                if success {
+                    print("ha")
+                    successAuth = true
+                } else {
+                    // If authentication failed then show a message to the console with a short description.
+                    // In case that the error is a user fallback, then show the password alert view.
+                    print(evalPolicyError?.localizedDescription)
+                    
+                    switch evalPolicyError!.code {
+                        
+                    case LAError.SystemCancel.rawValue:
+                        print("Authentication was cancelled by the system")
+                        
+                    case LAError.UserCancel.rawValue:
+                        print("Authentication was cancelled by the user")
+                        
+                    case LAError.UserFallback.rawValue:
+                        print("User selected to enter custom password")
+                        self.showPasswordAlert()
+                        
+                    default:
+                        print("Authentication failed")
+                        self.showPasswordAlert()
+                    }
+                }
+                
+            })]
+        } else {
+            // If the security policy cannot be evaluated then show a short message depending on the error.
+            switch error!.code{
+                
+            case LAError.TouchIDNotEnrolled.rawValue:
+                print("TouchID is not enrolled")
+                
+            case LAError.PasscodeNotSet.rawValue:
+                print("A passcode has not been set")
+                
+            default:
+                // The LAError.TouchIDNotAvailable case.
+                print("TouchID not available")
+            }
+            
+            // Optionally the error description can be displayed on the console.
+            print(error?.localizedDescription)
+            
+            // Show the custom alert view to allow users to enter the password.
+            self.showPasswordAlert()
+        }
+        
+        return successAuth
+        
+    }
+    
+    func showPasswordAlert() {
+        var passwordAlert : UIAlertView = UIAlertView(title: "TouchIDDemo", message: "Please type your password", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Okay")
+        passwordAlert.alertViewStyle = UIAlertViewStyle.SecureTextInput
+        passwordAlert.show()
+    }
+    
+    
+    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            if !alertView.textFieldAtIndex(0)!.text!.isEmpty {
+                if alertView.textFieldAtIndex(0)!.text == "password" {
+                    print("success")
+                    performSegueWithIdentifier(currSegueId, sender: nil)
+                }
+                else{
+                    print("failed")
+                    showPasswordAlert()
+                }
+            } else {
+                print("failed")
+                showPasswordAlert()
+            }
+        }
+    }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

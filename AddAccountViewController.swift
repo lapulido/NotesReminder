@@ -70,7 +70,7 @@ class AddAccountViewController: UIViewController {
         
         let randomString : NSMutableString = NSMutableString(capacity: 16)
         
-        for _ in 0 ..< 16{
+        for _ in 0 ..< 16 {
             let length = UInt32 (letters.length)
             let rand = arc4random_uniform(length)
             randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
@@ -98,15 +98,5 @@ class AddAccountViewController: UIViewController {
 
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
