@@ -18,6 +18,8 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     
     var currSegueId:String = ""
     
+    var authenticated:Bool = false
+    
     var accounts: Results<Account>! {
         didSet {
             tableView.reloadData()
@@ -75,12 +77,12 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         currSegueId = identifier
-        if authenticateUser() {
+        if authenticated {
             return true
         } else {
+            authenticateUser()
             return false
         }
-        
     }
     
     // Implementing Touch ID Functionality for security
@@ -94,16 +96,19 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         
         // Set the reason string that will appear on the authentication alert.
         var reasonString = "Authentication is needed to access your notes."
-        
-        var successAuth: Bool = false
-        
+        print("1")
         // Check if the device can evaluate the policy.
         if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
+            print("2")
             [context .evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success: Bool, evalPolicyError: NSError?) -> Void in
-                
+                print("3")
                 if success {
-                    print("ha")
-                    successAuth = true
+                    print("fp success")
+                    self.authenticated = true
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        self.performSegueWithIdentifier(self.currSegueId, sender: nil)
+                    })
+
                 } else {
                     // If authentication failed then show a message to the console with a short description.
                     // In case that the error is a user fallback, then show the password alert view.
@@ -119,11 +124,15 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
                         
                     case LAError.UserFallback.rawValue:
                         print("User selected to enter custom password")
-                        self.showPasswordAlert()
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.showPasswordAlert()
+                        })
                         
                     default:
                         print("Authentication failed")
-                        self.showPasswordAlert()
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.showPasswordAlert()
+                        })
                     }
                 }
                 
@@ -147,15 +156,15 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
             print(error?.localizedDescription)
             
             // Show the custom alert view to allow users to enter the password.
+            dispatch_async(dispatch_get_main_queue(), {
             self.showPasswordAlert()
+            })
         }
-        
-        return successAuth
-        
+        return false
     }
     
     func showPasswordAlert() {
-        var passwordAlert : UIAlertView = UIAlertView(title: "TouchIDDemo", message: "Please type your password", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Okay")
+        var passwordAlert : UIAlertView = UIAlertView(title: "TouchIDDemo", message: "Please type your password", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Enter")
         passwordAlert.alertViewStyle = UIAlertViewStyle.SecureTextInput
         passwordAlert.show()
     }
@@ -166,7 +175,9 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
             if !alertView.textFieldAtIndex(0)!.text!.isEmpty {
                 if alertView.textFieldAtIndex(0)!.text == "password" {
                     print("success")
-                    performSegueWithIdentifier(currSegueId, sender: nil)
+                    self.authenticated = true
+                    self.performSegueWithIdentifier(self.currSegueId, sender: nil)
+                    
                 }
                 else{
                     print("failed")

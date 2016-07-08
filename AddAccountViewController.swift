@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class AddAccountViewController: UIViewController {
 
@@ -62,7 +63,6 @@ class AddAccountViewController: UIViewController {
             }
         }
         accountTableViewController.accounts = RealmHelper.retrieveAccounts()
-        
     }
     
     @IBAction func generateNewPassword(sender: AnyObject) {
@@ -82,21 +82,21 @@ class AddAccountViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // 1
-        if let account = account {
+        if let account = self.account {
             // 2
-            serviceTextField.text = account.title
-            usernameTextField.text = account.username
-            passwordTextField.text = account.password
-            if serviceTextField == "Facebook"{
-                iconImageView.image = UIImage()
-            }
+            self.serviceTextField.text = account.title
+            self.usernameTextField.text = account.username
+            self.passwordTextField.text = account.password
+//            if serviceTextField == "Facebook"{
+//                iconImageView.image = UIImage()
+//            }
         } else {
             // 3
-            serviceTextField.text = ""
-            usernameTextField.text = ""
-            passwordTextField.text = ""
+            self.serviceTextField.text = ""
+            self.usernameTextField.text = ""
+            self.passwordTextField.text = ""
 
-        }
+    }
     }
 
 }
