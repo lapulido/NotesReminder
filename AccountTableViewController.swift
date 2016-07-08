@@ -85,6 +85,17 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         }
     }
     
+    // Swipe right delete option
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // 2
+        if editingStyle == .Delete {
+            // 3
+            RealmHelper.deleteAccount(accounts[indexPath.row])
+            // 4
+            accounts = RealmHelper.retrieveAccounts()
+        }
+    }
+    
     // Implementing Touch ID Functionality for security
     // http://www.appcoda.com/touch-id-api-ios8/
     func authenticateUser() -> Bool {

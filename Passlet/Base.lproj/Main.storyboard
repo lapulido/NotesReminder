@@ -140,6 +140,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Passlet" id="syY-tz-tZe">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="XIA-Gb-R1u"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="weo-Fc-rXQ">
                             <connections>
                                 <action selector="createNewAccount:" destination="aeI-A4-nGB" id="Ibq-2I-hE0"/>
@@ -250,6 +251,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kk1-mc-R7s"/>
+        <segue reference="cew-qa-IcA"/>
     </inferredMetricsTieBreakers>
 </document>
