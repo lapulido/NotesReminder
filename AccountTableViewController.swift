@@ -9,79 +9,199 @@
 import UIKit
 import RealmSwift
 import LocalAuthentication
+import WebKit
 
 class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     
     var myService:String = ""
     var myUsername:String = ""
     var myPassword:String = ""
-    
     var currSegueId:String = ""
-    
     var authenticated:Bool = false
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredAccounts = [Account]()
     
     var accounts: Results<Account>! {
         didSet {
             tableView.reloadData()
         }
     }
+    // accounts = candies
+    // Account = Candy
 
     override func viewDidLoad() {
         super.viewDidLoad()
 //        showPasswordAlert()
         accounts = RealmHelper.retrieveAccounts()
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
     }
     
+//    func filterContentForSearchText(searchText: String, scope: String = "All") {
+//        filteredAccounts = accounts.filter { account in
+//            return account.username.lowercaseString.containsString(searchText.lowercaseString)
+//        }
+//        
+//        tableView.reloadData()
+//    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredAccounts = accounts.filter { account in
+            let categoryMatch = (scope == "All") || (account.title == scope)
+            return  categoryMatch && account.username.lowercaseString.containsString(searchText.lowercaseString)
+        }
         
+        tableView.reloadData()
+    }
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredAccounts.count
+        }
         return accounts.count
     }
         
+    @IBAction func addActtion(sender: AnyObject) {
+        let alertVC = UIAlertController(title: "Note Type", message: "Which type would you like to add?", preferredStyle: .ActionSheet)
+        
+        // Alert action is needed for alert view controller
+        let notesAction = UIAlertAction(title: "Accounts", style: .Default) { action in
+            self.performSegueWithIdentifier("AccountsSegue", sender: self)
+        }
+        
+        let accountsAction = UIAlertAction(title: "Notes", style: .Default) { action in
+        self.performSegueWithIdentifier("NotesSegue", sender: self)
+        }
+        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { action in
+//            
+//        }
+        
+        alertVC.addAction(notesAction)
+        alertVC.addAction(accountsAction)
+        
+        // Present controller
+        self.presentViewController(alertVC, animated: true, completion: nil)
+    }
+    
+    // Original
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("accountTableViewCell", forIndexPath: indexPath) as! AccountTableViewCell
+//            
+//            // Configure the cell...
+//        let row = indexPath.row
+//        let currAcc = accounts[row]
+//            
+//        cell.accountLabel.text = currAcc.title
+//            
+//        return cell
+//    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("accountTableViewCell", forIndexPath: indexPath) as! AccountTableViewCell
-            
-            // Configure the cell...
-        let row = indexPath.row
-        let currAcc = accounts[row]
-            
-        cell.accountLabel.text = currAcc.title
-            
+        let account: Account
+        // Configure the cell...
+        if searchController.active && searchController.searchBar.text != "" {
+            account = filteredAccounts[indexPath.row]
+        } else {
+            account = accounts[indexPath.row]
+        }
+        //let currAcc = accounts[indexPath.row]
+        
+        cell.accountLabel.text = account.title
+        
         return cell
     }
+    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        if someCondition {
+//            performSegueWithIdentifier("segue1", sender: indexPath)
+//        } else {
+//            performSegueWithIdentifier("segue2", sender: indexPath)
+//        }
+//    }
     
     @IBAction func unwindToAccountViewController(segue: UIStoryboardSegue) {
         
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
         if let identifier = segue.identifier {
-            if identifier == "UpdateAccount" {
+        let account: Account
+            if identifier == "UpdateAccount"{
                 print("Table view cell tapped")
-                
-                // 1
                 let indexPath = tableView.indexPathForSelectedRow!
-                // 2
-                let account = accounts[indexPath.row]
-                // 3
+                
+                if searchController.active && searchController.searchBar.text != "" {
+                    account = filteredAccounts[indexPath.row]
+                } else {
+                    account = accounts[indexPath.row]
+                }
                 let addAccountViewController = segue.destinationViewController as! AddAccountViewController
                 // 4
                 addAccountViewController.account = account
+            }
+            
+            else if identifier == "UpdateNote"{
+                print("Updatenote Tapped")
+                let indexPath = tableView.indexPathForSelectedRow!
                 
-            }
-            else if identifier == "AddAccount" {
-                print("+ button tapped")
-            }
-        }
+                if searchController.active && searchController.searchBar.text != "" {
+                    
+                    account = filteredAccounts[indexPath.row]
+                } else {
+                    account = accounts[indexPath.row]
+                }
+                //self.performSegueWithIdentifier("NotesSegue", sender: self)
+                
+                let displayNoteViewController = segue.destinationViewController as! DisplayNoteViewController
+                // 4
+                displayNoteViewController.note = account
+
+                
+                // Distinguishes the one from notes
+//                if account.content != "" {
+//                    print("Note type")
+//                    performSegueWithIdentifier("UpdateNote", sender: account)
+//                    let displayNoteViewController = segue.destinationViewController as! DisplayNoteViewController
+//                    // 4
+//                    displayNoteViewController.note = account
+                
+//                    let displayNote = segue.destinationViewController as! DisplayNoteViewController
+//                    let addAccountViewController = displayNote.DisplayNoteViewController as! AddAccountViewController
+//                    addAccountViewController.note = account
+//                }
+        
+//                if segue.identifier == "fromEventTableToAddEvent" {
+//                    
+//                    let nav = segue.destinationViewController as! UINavigationController
+//                    let addEventViewController = nav.topViewController as! AddEventViewController
+//                    
+//                    addEventViewController.newTagArray = newTagArray
+//                else {
+//                
+//                let addAccountViewController = segue.destinationViewController as! AddAccountViewController
+//                // 4
+//                addAccountViewController.account = account
+//                
+//                }
+            
+
     }
-    
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        currSegueId = identifier
-        if authenticated {
-            return true
-        } else {
-            authenticateUser()
-            return false
+
+    // asks for authentication
+//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+//        currSegueId = identifier
+//        if authenticated {
+//            return true
+//        } else {
+//            authenticateUser()
+//            return false
+//        }
         }
     }
     
@@ -107,12 +227,12 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         
         // Set the reason string that will appear on the authentication alert.
         var reasonString = "Authentication is needed to access your notes."
-        print("1")
+        
         // Check if the device can evaluate the policy.
         if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
-            print("2")
+            
             [context .evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success: Bool, evalPolicyError: NSError?) -> Void in
-                print("3")
+                
                 if success {
                     print("fp success")
                     self.authenticated = true
@@ -175,10 +295,11 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     func showPasswordAlert() {
-        var passwordAlert : UIAlertView = UIAlertView(title: "TouchIDDemo", message: "Please type your password", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Enter")
+        var passwordAlert : UIAlertView = UIAlertView(title: "TouchID", message: "Please type your password", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Enter")
         passwordAlert.alertViewStyle = UIAlertViewStyle.SecureTextInput
         passwordAlert.show()
     }
+    
     
     
     func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
@@ -337,3 +458,16 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     */
 
 }
+
+extension AccountTableViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
+
+extension AccountTableViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+}
+

@@ -18,6 +18,7 @@ class AddAccountViewController: UIViewController {
     
     var account: Account?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,7 +65,7 @@ class AddAccountViewController: UIViewController {
         }
         accountTableViewController.accounts = RealmHelper.retrieveAccounts()
     }
-    
+    // Generates a random password
     @IBAction func generateNewPassword(sender: AnyObject) {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
         
@@ -78,7 +79,7 @@ class AddAccountViewController: UIViewController {
         
         passwordTextField.text = String(randomString)
     }
-    
+    // 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // 1

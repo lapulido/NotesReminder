@@ -17,8 +17,11 @@
 		355646921D2D810400168E48 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646911D2D810400168E48 /* AccountTableViewController.swift */; };
 		355646951D2D9F6000168E48 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646941D2D9F6000168E48 /* AccountTableViewCell.swift */; };
 		355646971D2DA72C00168E48 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646961D2DA72C00168E48 /* AddAccountViewController.swift */; };
-		355646991D2DC82700168E48 /* ShowAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646981D2DC82700168E48 /* ShowAccountViewController.swift */; };
-		3A0017750AB749889A529072 /* Pods_Passlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */; };
+		355646991D2DC82700168E48 /* ShowBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646981D2DC82700168E48 /* ShowBrowserViewController.swift */; };
+		89021E6E1D46C28B0022C37B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89021E6D1D46C28B0022C37B /* Note.swift */; };
+		89316F761D41715500AE9144 /* DisplayNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89316F751D41715500AE9144 /* DisplayNoteViewController.swift */; };
+		89316F791D4172DB00AE9144 /* NSDate+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89316F781D4172DB00AE9144 /* NSDate+convertToString.swift */; };
+		895DDC4F1D49672E000CBBC8 /* Pods_Passlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +37,11 @@
 		355646911D2D810400168E48 /* AccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		355646941D2D9F6000168E48 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		355646961D2DA72C00168E48 /* AddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
-		355646981D2DC82700168E48 /* ShowAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAccountViewController.swift; sourceTree = "<group>"; };
+		355646981D2DC82700168E48 /* ShowBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBrowserViewController.swift; sourceTree = "<group>"; };
 		4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.release.xcconfig"; sourceTree = "<group>"; };
+		89021E6D1D46C28B0022C37B /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		89316F751D41715500AE9144 /* DisplayNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayNoteViewController.swift; sourceTree = "<group>"; };
+		89316F781D4172DB00AE9144 /* NSDate+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+convertToString.swift"; sourceTree = "<group>"; };
 		B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Passlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC2E88FB6EB1E65CDD6D38D /* Pods-Passlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,7 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				355646891D2D746800168E48 /* LocalAuthentication.framework in Frameworks */,
-				3A0017750AB749889A529072 /* Pods_Passlet.framework in Frameworks */,
+				895DDC4F1D49672E000CBBC8 /* Pods_Passlet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,10 +81,11 @@
 		355646751D2C7C9000168E48 /* Passlet */ = {
 			isa = PBXGroup;
 			children = (
+				3556468A1D2D7A2F00168E48 /* Helpers */,
+				89316F771D4172C000AE9144 /* Extensions */,
 				355646931D2D9F4B00168E48 /* Views */,
 				355646901D2D80AD00168E48 /* Models */,
 				3556468F1D2D808200168E48 /* Controllers */,
-				3556468A1D2D7A2F00168E48 /* Helpers */,
 				355646761D2C7C9000168E48 /* AppDelegate.swift */,
 				3556467A1D2C7C9000168E48 /* Main.storyboard */,
 				3556467D1D2C7C9000168E48 /* Assets.xcassets */,
@@ -102,7 +109,8 @@
 			children = (
 				355646911D2D810400168E48 /* AccountTableViewController.swift */,
 				355646961D2DA72C00168E48 /* AddAccountViewController.swift */,
-				355646981D2DC82700168E48 /* ShowAccountViewController.swift */,
+				355646981D2DC82700168E48 /* ShowBrowserViewController.swift */,
+				89316F751D41715500AE9144 /* DisplayNoteViewController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -112,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				3556468D1D2D7C6800168E48 /* Account.swift */,
+				89021E6D1D46C28B0022C37B /* Note.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -131,6 +140,14 @@
 				4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		89316F771D4172C000AE9144 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				89316F781D4172DB00AE9144 /* NSDate+convertToString.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A81CBC388EBB2627D7D5D9D6 /* Frameworks */ = {
@@ -266,11 +283,14 @@
 			files = (
 				355646771D2C7C9000168E48 /* AppDelegate.swift in Sources */,
 				3556468C1D2D7A6D00168E48 /* RealmHelper.swift in Sources */,
-				355646991D2DC82700168E48 /* ShowAccountViewController.swift in Sources */,
+				355646991D2DC82700168E48 /* ShowBrowserViewController.swift in Sources */,
 				355646921D2D810400168E48 /* AccountTableViewController.swift in Sources */,
 				355646951D2D9F6000168E48 /* AccountTableViewCell.swift in Sources */,
+				89021E6E1D46C28B0022C37B /* Note.swift in Sources */,
+				89316F761D41715500AE9144 /* DisplayNoteViewController.swift in Sources */,
 				355646971D2DA72C00168E48 /* AddAccountViewController.swift in Sources */,
 				3556468E1D2D7C6800168E48 /* Account.swift in Sources */,
+				89316F791D4172DB00AE9144 /* NSDate+convertToString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,10 +406,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/../../../../../../../../../Users/Pulido/Library/Developer/Xcode/DerivedData/Passlet-alodtuazsfnmulgqmxvvmteydgyp/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Passlet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahithb.Passlet;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahith.Passlet;
+				PRODUCT_NAME = Passlet;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -401,10 +425,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/../../../../../../../../../Users/Pulido/Library/Developer/Xcode/DerivedData/Passlet-alodtuazsfnmulgqmxvvmteydgyp/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Passlet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahithb.Passlet;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sahith.Passlet;
+				PRODUCT_NAME = Passlet;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

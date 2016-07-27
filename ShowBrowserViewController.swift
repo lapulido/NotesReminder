@@ -1,5 +1,5 @@
 //
-//  ShowAccountViewController.swift
+//  ShowBrowserViewController.swift
 //  Passlet
 //
 //  Created by Sahith Bhamidipati on 7/6/16.
@@ -7,16 +7,25 @@
 //
 
 import UIKit
-
-class ShowAccountViewController: UIViewController {
+import WebKit
+class ShowBrowserViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var webView: WKWebView!
+    
+    override func loadView() {
+        webView = WKWebView()
+        webView.navigationDelegate = self
+        view = webView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let url = NSURL(string: "https://www.google.com")!
+        webView.loadRequest(NSURLRequest(URL: url))
+        webView.allowsBackForwardNavigationGestures = true
         // Do any additional setup after loading the view.
     }
 
