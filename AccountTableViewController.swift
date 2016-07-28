@@ -20,15 +20,14 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     var authenticated:Bool = false
     let searchController = UISearchController(searchResultsController: nil)
     var filteredAccounts = [Account]()
+    var passwordMaster:String = ""
     
     var accounts: Results<Account>! {
         didSet {
             tableView.reloadData()
         }
     }
-    // accounts = candies
-    // Account = Candy
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        showPasswordAlert()
@@ -39,14 +38,7 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         tableView.tableHeaderView = searchController.searchBar
     }
     
-//    func filterContentForSearchText(searchText: String, scope: String = "All") {
-//        filteredAccounts = accounts.filter { account in
-//            return account.username.lowercaseString.containsString(searchText.lowercaseString)
-//        }
-//        
-//        tableView.reloadData()
-//    }
-    
+    // Search content
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredAccounts = accounts.filter { account in
             let categoryMatch = (scope == "All") || (account.title == scope)
@@ -55,7 +47,8 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         
         tableView.reloadData()
     }
-
+    
+    // Returns the number of Rows
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
         if searchController.active && searchController.searchBar.text != "" {
@@ -63,43 +56,8 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         }
         return accounts.count
     }
-        
-    @IBAction func addActtion(sender: AnyObject) {
-        let alertVC = UIAlertController(title: "Note Type", message: "Which type would you like to add?", preferredStyle: .ActionSheet)
-        
-        // Alert action is needed for alert view controller
-        let notesAction = UIAlertAction(title: "Accounts", style: .Default) { action in
-            self.performSegueWithIdentifier("AccountsSegue", sender: self)
-        }
-        
-        let accountsAction = UIAlertAction(title: "Notes", style: .Default) { action in
-        self.performSegueWithIdentifier("NotesSegue", sender: self)
-        }
-        
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { action in
-//            
-//        }
-        
-        alertVC.addAction(notesAction)
-        alertVC.addAction(accountsAction)
-        
-        // Present controller
-        self.presentViewController(alertVC, animated: true, completion: nil)
-    }
     
-    // Original
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("accountTableViewCell", forIndexPath: indexPath) as! AccountTableViewCell
-//            
-//            // Configure the cell...
-//        let row = indexPath.row
-//        let currAcc = accounts[row]
-//            
-//        cell.accountLabel.text = currAcc.title
-//            
-//        return cell
-//    }
-    
+    // Returns the
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("accountTableViewCell", forIndexPath: indexPath) as! AccountTableViewCell
         let account: Account
@@ -109,30 +67,44 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         } else {
             account = accounts[indexPath.row]
         }
-        //let currAcc = accounts[indexPath.row]
+        
+        if account.username.characters.count > 0 {
+            cell.tag = 0
+        } else {
+            cell.tag = 1
+        }
+        
         
         cell.accountLabel.text = account.title
         
         return cell
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        if someCondition {
-//            performSegueWithIdentifier("segue1", sender: indexPath)
-//        } else {
-//            performSegueWithIdentifier("segue2", sender: indexPath)
-//        }
-//    }
-    
-    @IBAction func unwindToAccountViewController(segue: UIStoryboardSegue) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
         
+        if cell!.tag == 0 {
+            let controller = storyboard?.instantiateViewControllerWithIdentifier("AddAccountViewController") as? AddAccountViewController
+            controller?.account = accounts[indexPath.row]
+            navigationController?.pushViewController(controller!, animated: true)
+        } else {
+            let controller = storyboard?.instantiateViewControllerWithIdentifier("DisplayNoteViewController") as? DisplayNoteViewController
+            controller?.note = accounts[indexPath.row]
+            navigationController?.pushViewController(controller!, animated: true)
+        }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+    // For reverting back to original view controller
+    @IBAction func unwindToAccountViewController(segue: UIStoryboardSegue) {
+    }
+    
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
         let account: Account
-            if identifier == "UpdateAccount"{
+            if identifier == "UpdateAccount1" {
                 print("Table view cell tapped")
                 let indexPath = tableView.indexPathForSelectedRow!
                 
@@ -141,56 +113,18 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
                 } else {
                     account = accounts[indexPath.row]
                 }
-                let addAccountViewController = segue.destinationViewController as! AddAccountViewController
-                // 4
-                addAccountViewController.account = account
-            }
-            
-            else if identifier == "UpdateNote"{
-                print("Updatenote Tapped")
-                let indexPath = tableView.indexPathForSelectedRow!
-                
-                if searchController.active && searchController.searchBar.text != "" {
-                    
-                    account = filteredAccounts[indexPath.row]
-                } else {
-                    account = accounts[indexPath.row]
+                // Shows account type
+                if account.username != "" {
+                    let addAccountViewController = segue.destinationViewController as! AddAccountViewController
+                    // 4
+                    addAccountViewController.account = account
                 }
-                //self.performSegueWithIdentifier("NotesSegue", sender: self)
-                
-                let displayNoteViewController = segue.destinationViewController as! DisplayNoteViewController
-                // 4
-                displayNoteViewController.note = account
-
-                
-                // Distinguishes the one from notes
-//                if account.content != "" {
-//                    print("Note type")
-//                    performSegueWithIdentifier("UpdateNote", sender: account)
-//                    let displayNoteViewController = segue.destinationViewController as! DisplayNoteViewController
-//                    // 4
-//                    displayNoteViewController.note = account
-                
-//                    let displayNote = segue.destinationViewController as! DisplayNoteViewController
-//                    let addAccountViewController = displayNote.DisplayNoteViewController as! AddAccountViewController
-//                    addAccountViewController.note = account
-//                }
-        
-//                if segue.identifier == "fromEventTableToAddEvent" {
-//                    
-//                    let nav = segue.destinationViewController as! UINavigationController
-//                    let addEventViewController = nav.topViewController as! AddEventViewController
-//                    
-//                    addEventViewController.newTagArray = newTagArray
-//                else {
-//                
-//                let addAccountViewController = segue.destinationViewController as! AddAccountViewController
-//                // 4
-//                addAccountViewController.account = account
-//                
-//                }
-            
-
+                // Shows Note type
+                else {
+                   let displayNoteViewController = segue.destinationViewController as! DisplayNoteViewController
+                    // 4
+                   displayNoteViewController.note = account
+            }
     }
 
     // asks for authentication
@@ -214,6 +148,30 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
             // 4
             accounts = RealmHelper.retrieveAccounts()
         }
+    }
+    
+    // Add button is given two options: Accounts and Notes
+    @IBAction func addActtion(sender: AnyObject) {
+        let alertVC = UIAlertController(title: "Note Type", message: "Which type would you like to add?", preferredStyle: .ActionSheet)
+        
+        // Alert action is needed for alert view controller
+        let notesAction = UIAlertAction(title: "Accounts", style: .Default) { action in
+            self.performSegueWithIdentifier("AccountsSegue", sender: self)
+        }
+        
+        let accountsAction = UIAlertAction(title: "Notes", style: .Default) { action in
+            self.performSegueWithIdentifier("NotesSegue", sender: self)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { action in
+        }
+        
+        alertVC.addAction(notesAction)
+        alertVC.addAction(accountsAction)
+        alertVC.addAction(cancelAction)
+        
+        // Present controller
+        self.presentViewController(alertVC, animated: true, completion: nil)
     }
     
     // Implementing Touch ID Functionality for security
@@ -301,7 +259,6 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     
-    
     func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 {
             if !alertView.textFieldAtIndex(0)!.text!.isEmpty {
@@ -387,20 +344,6 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     
     //http://stackoverflow.com/questions/26845307/generate-random-alphanumeric-string-in-swift
     
-    func generateRandomPassword() -> String{
-        
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
-        
-        let randomString : NSMutableString = NSMutableString(capacity: 16)
-        
-        for _ in 0 ..< 16{
-            let length = UInt32 (letters.length)
-            let rand = arc4random_uniform(length)
-            randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
-        }
-        
-        return String(randomString)
-    }
     
     func saveAccountInfo() {
         

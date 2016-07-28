@@ -26,7 +26,7 @@
         <!--Account Information-->
         <scene sceneID="tDS-PZ-7RL">
             <objects>
-                <viewController id="MvB-Ma-XZK" customClass="AddAccountViewController" customModule="Passlet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddAccountViewController" id="MvB-Ma-XZK" customClass="AddAccountViewController" customModule="Passlet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5bs-Ts-ihK"/>
                         <viewControllerLayoutGuide type="bottom" id="wLG-8v-Diy"/>
@@ -66,6 +66,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4z-fP-Xe6">
                                 <rect key="frame" x="213" y="321" width="175" height="30"/>
                                 <state key="normal" title="Lock Account"/>
+                                <connections>
+                                    <action selector="lockAccount:" destination="MvB-Ma-XZK" eventType="touchUpInside" id="SxV-FT-v2D"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,7 +104,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxw-2p-rMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GaK-mJ-IaS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1670" y="312"/>
+            <point key="canvasLocation" x="1670" y="438"/>
         </scene>
         <!--Notes-->
         <scene sceneID="FMl-pn-hdr">
@@ -138,7 +141,6 @@
                                 <accessibility key="accessibilityConfiguration" identifier="accountTableViewCell"/>
                                 <connections>
                                     <outlet property="accountLabel" destination="JeK-Gr-sMY" id="FxT-MD-QIS"/>
-                                    <segue destination="MvB-Ma-XZK" kind="show" identifier="UpdateAccount" id="cew-qa-IcA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -166,7 +168,8 @@
                     <connections>
                         <segue destination="MvB-Ma-XZK" kind="show" identifier="AccountsSegue" id="64G-lf-GVH"/>
                         <segue destination="8Ee-yz-OSb" kind="show" identifier="NotesSegue" id="2vi-53-9fP"/>
-                        <segue destination="8Ee-yz-OSb" kind="show" identifier="UpdateNote" id="oHR-8D-Sap"/>
+                        <segue destination="8Ee-yz-OSb" kind="show" identifier="UpdateNote" id="jaI-oH-AIE"/>
+                        <segue destination="MvB-Ma-XZK" kind="show" identifier="UpdateAccount" id="Rx4-Zk-THY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyB-ep-3sV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,7 +230,7 @@
         <!--Note Information-->
         <scene sceneID="IyG-36-n1u">
             <objects>
-                <viewController title="Note Information" id="8Ee-yz-OSb" customClass="DisplayNoteViewController" customModule="Passlet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DisplayNoteViewController" title="Note Information" id="8Ee-yz-OSb" customClass="DisplayNoteViewController" customModule="Passlet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ege-II-JgN"/>
                         <viewControllerLayoutGuide type="bottom" id="B9v-vo-rwr"/>
@@ -285,7 +288,7 @@
         <image name="Safari-50" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cew-qa-IcA"/>
-        <segue reference="2vi-53-9fP"/>
+        <segue reference="jaI-oH-AIE"/>
+        <segue reference="Rx4-Zk-THY"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -79,6 +79,11 @@ class AddAccountViewController: UIViewController {
         
         passwordTextField.text = String(randomString)
     }
+    
+    @IBAction func lockAccount(sender: AnyObject) {
+        
+    }
+    
     // 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

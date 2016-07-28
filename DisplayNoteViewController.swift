@@ -39,6 +39,7 @@ class DisplayNoteViewController: UIViewController {
             }
             // 3
             noteTableViewController.accounts = RealmHelper.retrieveAccounts()
+            
         }
     }
 
