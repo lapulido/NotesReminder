@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Pulido/Desktop/AppIdea/Passlet.xcodeproj">
+      location = "group:/Users/Pulido/Desktop/AppIdea/NotesReminder.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:NotesReminder.xcodeproj">
    </FileRef>
 </Workspace>

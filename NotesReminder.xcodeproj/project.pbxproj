@@ -21,11 +21,11 @@
 		89021E6E1D46C28B0022C37B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89021E6D1D46C28B0022C37B /* Note.swift */; };
 		89316F761D41715500AE9144 /* DisplayNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89316F751D41715500AE9144 /* DisplayNoteViewController.swift */; };
 		89316F791D4172DB00AE9144 /* NSDate+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89316F781D4172DB00AE9144 /* NSDate+convertToString.swift */; };
-		895DDC4F1D49672E000CBBC8 /* Pods_Passlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */; };
+		895DDC4F1D49672E000CBBC8 /* Pods_NotesReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCF9F0D478A7126BF1B1A3 /* Pods_NotesReminder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		355646731D2C7C9000168E48 /* Passlet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passlet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		355646731D2C7C9000168E48 /* NotesReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		355646761D2C7C9000168E48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3556467B1D2C7C9000168E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3556467D1D2C7C9000168E48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,12 +38,12 @@
 		355646941D2D9F6000168E48 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		355646961D2DA72C00168E48 /* AddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		355646981D2DC82700168E48 /* ShowBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBrowserViewController.swift; sourceTree = "<group>"; };
-		4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.release.xcconfig"; sourceTree = "<group>"; };
+		4A11D15E19AACADCE82DCC04 /* Pods-NotesReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotesReminder/Pods-NotesReminder.release.xcconfig"; sourceTree = "<group>"; };
 		89021E6D1D46C28B0022C37B /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		89316F751D41715500AE9144 /* DisplayNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayNoteViewController.swift; sourceTree = "<group>"; };
 		89316F781D4172DB00AE9144 /* NSDate+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+convertToString.swift"; sourceTree = "<group>"; };
-		B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Passlet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCC2E88FB6EB1E65CDD6D38D /* Pods-Passlet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Passlet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Passlet/Pods-Passlet.debug.xcconfig"; sourceTree = "<group>"; };
+		B8FCF9F0D478A7126BF1B1A3 /* Pods_NotesReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotesReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCC2E88FB6EB1E65CDD6D38D /* Pods-NotesReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotesReminder/Pods-NotesReminder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				355646891D2D746800168E48 /* LocalAuthentication.framework in Frameworks */,
-				895DDC4F1D49672E000CBBC8 /* Pods_Passlet.framework in Frameworks */,
+				895DDC4F1D49672E000CBBC8 /* Pods_NotesReminder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				355646881D2D746800168E48 /* LocalAuthentication.framework */,
-				355646751D2C7C9000168E48 /* Passlet */,
+				355646751D2C7C9000168E48 /* NotesReminder */,
 				355646741D2C7C9000168E48 /* Products */,
 				67567EF2F4131E35979A6B49 /* Pods */,
 				A81CBC388EBB2627D7D5D9D6 /* Frameworks */,
@@ -73,12 +73,12 @@
 		355646741D2C7C9000168E48 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				355646731D2C7C9000168E48 /* Passlet.app */,
+				355646731D2C7C9000168E48 /* NotesReminder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		355646751D2C7C9000168E48 /* Passlet */ = {
+		355646751D2C7C9000168E48 /* NotesReminder */ = {
 			isa = PBXGroup;
 			children = (
 				3556468A1D2D7A2F00168E48 /* Helpers */,
@@ -92,7 +92,7 @@
 				3556467F1D2C7C9000168E48 /* LaunchScreen.storyboard */,
 				355646821D2C7C9000168E48 /* Info.plist */,
 			);
-			path = Passlet;
+			path = NotesReminder;
 			sourceTree = "<group>";
 		};
 		3556468A1D2D7A2F00168E48 /* Helpers */ = {
@@ -136,8 +136,8 @@
 		67567EF2F4131E35979A6B49 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BCC2E88FB6EB1E65CDD6D38D /* Pods-Passlet.debug.xcconfig */,
-				4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */,
+				BCC2E88FB6EB1E65CDD6D38D /* Pods-NotesReminder.debug.xcconfig */,
+				4A11D15E19AACADCE82DCC04 /* Pods-NotesReminder.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -153,7 +153,7 @@
 		A81CBC388EBB2627D7D5D9D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B8FCF9F0D478A7126BF1B1A3 /* Pods_Passlet.framework */,
+				B8FCF9F0D478A7126BF1B1A3 /* Pods_NotesReminder.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,9 +161,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		355646721D2C7C9000168E48 /* Passlet */ = {
+		355646721D2C7C9000168E48 /* NotesReminder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 355646851D2C7C9000168E48 /* Build configuration list for PBXNativeTarget "Passlet" */;
+			buildConfigurationList = 355646851D2C7C9000168E48 /* Build configuration list for PBXNativeTarget "NotesReminder" */;
 			buildPhases = (
 				24781E85F687B86349D70F83 /* [CP] Check Pods Manifest.lock */,
 				3556466F1D2C7C9000168E48 /* Sources */,
@@ -176,9 +176,9 @@
 			);
 			dependencies = (
 			);
-			name = Passlet;
-			productName = Passlet;
-			productReference = 355646731D2C7C9000168E48 /* Passlet.app */;
+			name = NotesReminder;
+			productName = NotesReminder;
+			productReference = 355646731D2C7C9000168E48 /* NotesReminder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -189,7 +189,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "Sahith Bhamidipati";
+				ORGANIZATIONNAME = Luigi;
 				TargetAttributes = {
 					355646721D2C7C9000168E48 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -197,7 +197,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3556466E1D2C7C9000168E48 /* Build configuration list for PBXProject "Passlet" */;
+			buildConfigurationList = 3556466E1D2C7C9000168E48 /* Build configuration list for PBXProject "NotesReminder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -210,7 +210,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				355646721D2C7C9000168E48 /* Passlet */,
+				355646721D2C7C9000168E48 /* NotesReminder */,
 			);
 		};
 /* End PBXProject section */
@@ -256,7 +256,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Passlet/Pods-Passlet-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotesReminder/Pods-NotesReminder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DB8D1B2E49DDFE8CB9335E12 /* [CP] Copy Pods Resources */ = {
@@ -271,7 +271,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Passlet/Pods-Passlet-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NotesReminder/Pods-NotesReminder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -401,38 +401,38 @@
 		};
 		355646861D2C7C9000168E48 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCC2E88FB6EB1E65CDD6D38D /* Pods-Passlet.debug.xcconfig */;
+			baseConfigurationReference = BCC2E88FB6EB1E65CDD6D38D /* Pods-NotesReminder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SDKROOT)/../../../../../../../../../Users/Pulido/Library/Developer/Xcode/DerivedData/Passlet-alodtuazsfnmulgqmxvvmteydgyp/Build/Products/Debug-iphoneos",
+					"$(SDKROOT)/../../../../../../../../../Users/Pulido/Library/Developer/Xcode/DerivedData/NotesReminder-alodtuazsfnmulgqmxvvmteydgyp/Build/Products/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = Passlet/Info.plist;
+				INFOPLIST_FILE = NotesReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahith.Passlet;
-				PRODUCT_NAME = Passlet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luigi.NotesReminder;
+				PRODUCT_NAME = NotesReminder;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		355646871D2C7C9000168E48 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A11D15E19AACADCE82DCC04 /* Pods-Passlet.release.xcconfig */;
+			baseConfigurationReference = 4A11D15E19AACADCE82DCC04 /* Pods-NotesReminder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SDKROOT)/../../../../../../../../../Users/Pulido/Library/Developer/Xcode/DerivedData/Passlet-alodtuazsfnmulgqmxvvmteydgyp/Build/Products/Debug-iphoneos",
+					"$(SDKROOT)/../../../../../../../../../Users/Pulido/Library/Developer/Xcode/DerivedData/NotesReminder-alodtuazsfnmulgqmxvvmteydgyp/Build/Products/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = Passlet/Info.plist;
+				INFOPLIST_FILE = NotesReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sahith.Passlet;
-				PRODUCT_NAME = Passlet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luigi.NotesReminder;
+				PRODUCT_NAME = NotesReminder;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -440,7 +440,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3556466E1D2C7C9000168E48 /* Build configuration list for PBXProject "Passlet" */ = {
+		3556466E1D2C7C9000168E48 /* Build configuration list for PBXProject "NotesReminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				355646831D2C7C9000168E48 /* Debug */,
@@ -449,7 +449,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		355646851D2C7C9000168E48 /* Build configuration list for PBXNativeTarget "Passlet" */ = {
+		355646851D2C7C9000168E48 /* Build configuration list for PBXNativeTarget "NotesReminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				355646861D2C7C9000168E48 /* Debug */,

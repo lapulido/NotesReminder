@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "072E4DEFEBD7D2EF19A262AD8B39A1D6"
-               BuildableName = "Pods_Passlet.framework"
-               BlueprintName = "Pods-Passlet"
+               BlueprintIdentifier = "91110D5692121F37CC7281F0D5C0E8E8"
+               BuildableName = "Pods_NotesReminder.framework"
+               BlueprintName = "Pods-NotesReminder"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "072E4DEFEBD7D2EF19A262AD8B39A1D6"
-            BuildableName = "Pods_Passlet.framework"
-            BlueprintName = "Pods-Passlet"
+            BlueprintIdentifier = "91110D5692121F37CC7281F0D5C0E8E8"
+            BuildableName = "Pods_NotesReminder.framework"
+            BlueprintName = "Pods-NotesReminder"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
