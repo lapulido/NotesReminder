@@ -12,6 +12,7 @@ import RealmSwift
 class AccountTableViewCell: UITableViewCell {
 
     @IBOutlet weak var accountLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

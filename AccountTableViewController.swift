@@ -21,6 +21,7 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     let searchController = UISearchController(searchResultsController: nil)
     var filteredAccounts = [Account]()
     var passwordMaster:String = ""
+    var textField: UITextField?
     
     var accounts: Results<Account>! {
         didSet {
@@ -32,19 +33,29 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         super.viewDidLoad()
 //        showPasswordAlert()
         accounts = RealmHelper.retrieveAccounts()
+        
+        // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
+        searchController.searchBar.delegate = self
+
+        // Setup the Scope Bar
+        searchController.searchBar.scopeButtonTitles = ["All", "Account", "Note"]
         tableView.tableHeaderView = searchController.searchBar
+
     }
+    
+    //candy = account
+    //candies = accounts
+    
     
     // Search content
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredAccounts = accounts.filter { account in
-            let categoryMatch = (scope == "All") || (account.title == scope)
-            return  categoryMatch && account.username.lowercaseString.containsString(searchText.lowercaseString)
+            let categoryMatch = (scope == "All") || (account.category == scope)
+            return  categoryMatch && account.title.lowercaseString.containsString(searchText.lowercaseString)
         }
-        
         tableView.reloadData()
     }
     
@@ -57,7 +68,7 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         return accounts.count
     }
     
-    // Returns the
+    // Returns the proper cell
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("accountTableViewCell", forIndexPath: indexPath) as! AccountTableViewCell
         let account: Account
@@ -67,6 +78,8 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         } else {
             account = accounts[indexPath.row]
         }
+        cell.accountLabel.text = account.title
+        cell.categoryLabel.text = account.category
         
         if account.username.characters.count > 0 {
             cell.tag = 0
@@ -74,16 +87,13 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
             cell.tag = 1
         }
         
-        
-        cell.accountLabel.text = account.title
+
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        
         if cell!.tag == 0 {
             let controller = storyboard?.instantiateViewControllerWithIdentifier("AddAccountViewController") as? AddAccountViewController
             controller?.account = accounts[indexPath.row]
@@ -99,33 +109,8 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     // For reverting back to original view controller
     @IBAction func unwindToAccountViewController(segue: UIStoryboardSegue) {
     }
-    
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let identifier = segue.identifier {
-        let account: Account
-            if identifier == "UpdateAccount1" {
-                print("Table view cell tapped")
-                let indexPath = tableView.indexPathForSelectedRow!
-                
-                if searchController.active && searchController.searchBar.text != "" {
-                    account = filteredAccounts[indexPath.row]
-                } else {
-                    account = accounts[indexPath.row]
-                }
-                // Shows account type
-                if account.username != "" {
-                    let addAccountViewController = segue.destinationViewController as! AddAccountViewController
-                    // 4
-                    addAccountViewController.account = account
-                }
-                // Shows Note type
-                else {
-                   let displayNoteViewController = segue.destinationViewController as! DisplayNoteViewController
-                    // 4
-                   displayNoteViewController.note = account
-            }
-    }
 
     // asks for authentication
 //    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
@@ -135,9 +120,9 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
 //        } else {
 //            authenticateUser()
 //            return false
-//        }
+//            }
         }
-    }
+    
     
     // Swipe right delete option
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -151,7 +136,7 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
     }
     
     // Add button is given two options: Accounts and Notes
-    @IBAction func addActtion(sender: AnyObject) {
+    @IBAction func addAction(sender: AnyObject) {
         let alertVC = UIAlertController(title: "Note Type", message: "Which type would you like to add?", preferredStyle: .ActionSheet)
         
         // Alert action is needed for alert view controller
@@ -163,7 +148,7 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
             self.performSegueWithIdentifier("NotesSegue", sender: self)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { action in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { action in
         }
         
         alertVC.addAction(notesAction)
@@ -172,6 +157,74 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         
         // Present controller
         self.presentViewController(alertVC, animated: true, completion: nil)
+    }
+    
+    
+    // The lock bar item and user creation of password
+    @IBAction func lockAccount(sender: AnyObject) {
+        inputOwnPassword()
+    }
+    
+    func inputOwnPassword() {
+        // Alert action needed for view controller
+        let lockAlert = UIAlertController(title: "Create a New Password", message: "For Security Purposes", preferredStyle: .Alert)
+        
+        // Adds the text field
+        lockAlert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = ""
+        })
+        
+        // Grab the value from the text field, and print it when the user clicks OK.
+        lockAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            self.textField = lockAlert.textFields![0] as UITextField
+            print("Text field: \(self.textField!.text)")
+        }))
+        
+        // Adds the Cancel Button
+        lockAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action) -> Void in
+        }))
+        
+        // Present controller
+        self.presentViewController(lockAlert, animated: true, completion: nil)
+        
+//        let check = true
+//        
+//        if check == true {
+//            let alertLock = UIAlertController(title: "Locked Account", message: "Your Account is now Locked!", preferredStyle: .Alert)
+//            let okAction = UIAlertAction(title: "OK", style: .Default) { action in
+//            }
+//            alertLock.addAction(okAction)
+//            self.presentViewController(alertLock, animated: true, completion: nil)
+//        }
+
+    }
+
+    
+    // Shows the options between TouchID or Password
+    func showPasswordAlert() {
+        let passwordAlert : UIAlertView = UIAlertView(title: "TouchID", message: "Please type your password", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Enter")
+        passwordAlert.alertViewStyle = UIAlertViewStyle.SecureTextInput
+        passwordAlert.show()
+    }
+    
+    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            if !alertView.textFieldAtIndex(0)!.text!.isEmpty {
+                if alertView.textFieldAtIndex(0)!.text == textField?.text {
+                    print("success")
+                    self.authenticated = true
+                    self.performSegueWithIdentifier("AccountTableViewController", sender: nil)
+                    
+                }
+                else{
+                    print("failed")
+                    showPasswordAlert()
+                }
+            } else {
+                print("failed")
+                showPasswordAlert()
+            }
+        }
     }
     
     // Implementing Touch ID Functionality for security
@@ -184,7 +237,7 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         var error: NSError?
         
         // Set the reason string that will appear on the authentication alert.
-        var reasonString = "Authentication is needed to access your notes."
+        let reasonString = "Authentication is needed to access your notes."
         
         // Check if the device can evaluate the policy.
         if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
@@ -252,32 +305,6 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         return false
     }
     
-    func showPasswordAlert() {
-        var passwordAlert : UIAlertView = UIAlertView(title: "TouchID", message: "Please type your password", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Enter")
-        passwordAlert.alertViewStyle = UIAlertViewStyle.SecureTextInput
-        passwordAlert.show()
-    }
-    
-    
-    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 1 {
-            if !alertView.textFieldAtIndex(0)!.text!.isEmpty {
-                if alertView.textFieldAtIndex(0)!.text == "password" {
-                    print("success")
-                    self.authenticated = true
-                    self.performSegueWithIdentifier(self.currSegueId, sender: nil)
-                    
-                }
-                else{
-                    print("failed")
-                    showPasswordAlert()
-                }
-            } else {
-                print("failed")
-                showPasswordAlert()
-            }
-        }
-    }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -404,7 +431,9 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
 
 extension AccountTableViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
 }
 
@@ -413,4 +442,5 @@ extension AccountTableViewController: UISearchBarDelegate {
         filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }
+
 

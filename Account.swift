@@ -10,9 +10,12 @@ import Foundation
 import RealmSwift
 
 class Account: Object {
+    dynamic var title = ""
+    dynamic var category = ""
+    // only found in account
     dynamic var username = ""
     dynamic var password = ""
-    dynamic var title = ""
+    // only found in note
     dynamic var content = ""
     dynamic var modificationTime = NSDate()
 }

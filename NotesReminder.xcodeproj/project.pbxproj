@@ -18,10 +18,10 @@
 		355646951D2D9F6000168E48 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646941D2D9F6000168E48 /* AccountTableViewCell.swift */; };
 		355646971D2DA72C00168E48 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646961D2DA72C00168E48 /* AddAccountViewController.swift */; };
 		355646991D2DC82700168E48 /* ShowBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646981D2DC82700168E48 /* ShowBrowserViewController.swift */; };
-		89021E6E1D46C28B0022C37B /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89021E6D1D46C28B0022C37B /* Note.swift */; };
 		89316F761D41715500AE9144 /* DisplayNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89316F751D41715500AE9144 /* DisplayNoteViewController.swift */; };
 		89316F791D4172DB00AE9144 /* NSDate+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89316F781D4172DB00AE9144 /* NSDate+convertToString.swift */; };
 		895DDC4F1D49672E000CBBC8 /* Pods_NotesReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCF9F0D478A7126BF1B1A3 /* Pods_NotesReminder.framework */; };
+		899CFDE41D51438100003991 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CFDE31D51438100003991 /* PhotoTakingHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +39,9 @@
 		355646961D2DA72C00168E48 /* AddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 		355646981D2DC82700168E48 /* ShowBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowBrowserViewController.swift; sourceTree = "<group>"; };
 		4A11D15E19AACADCE82DCC04 /* Pods-NotesReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotesReminder/Pods-NotesReminder.release.xcconfig"; sourceTree = "<group>"; };
-		89021E6D1D46C28B0022C37B /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		89316F751D41715500AE9144 /* DisplayNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayNoteViewController.swift; sourceTree = "<group>"; };
 		89316F781D4172DB00AE9144 /* NSDate+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+convertToString.swift"; sourceTree = "<group>"; };
+		899CFDE31D51438100003991 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		B8FCF9F0D478A7126BF1B1A3 /* Pods_NotesReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotesReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC2E88FB6EB1E65CDD6D38D /* Pods-NotesReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotesReminder/Pods-NotesReminder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3556468B1D2D7A6D00168E48 /* RealmHelper.swift */,
+				899CFDE31D51438100003991 /* PhotoTakingHelper.swift */,
 			);
 			name = Helpers;
 			path = ..;
@@ -120,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				3556468D1D2D7C6800168E48 /* Account.swift */,
-				89021E6D1D46C28B0022C37B /* Note.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -286,8 +286,8 @@
 				355646991D2DC82700168E48 /* ShowBrowserViewController.swift in Sources */,
 				355646921D2D810400168E48 /* AccountTableViewController.swift in Sources */,
 				355646951D2D9F6000168E48 /* AccountTableViewCell.swift in Sources */,
-				89021E6E1D46C28B0022C37B /* Note.swift in Sources */,
 				89316F761D41715500AE9144 /* DisplayNoteViewController.swift in Sources */,
+				899CFDE41D51438100003991 /* PhotoTakingHelper.swift in Sources */,
 				355646971D2DA72C00168E48 /* AddAccountViewController.swift in Sources */,
 				3556468E1D2D7C6800168E48 /* Account.swift in Sources */,
 				89316F791D4172DB00AE9144 /* NSDate+convertToString.swift in Sources */,

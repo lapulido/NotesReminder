@@ -3,7 +3,7 @@
 //  Passlet
 //
 //  Created by Pulido on 7/21/16.
-//  Copyright © 2016 Sahith Bhamidipati. All rights reserved.
+//  Copyright © 2016 Luigi. All rights reserved.
 //
 
 import UIKit
@@ -12,6 +12,7 @@ import RealmSwift
 class DisplayNoteViewController: UIViewController {
     @IBOutlet weak var noteContentTextView: UITextView!
     @IBOutlet weak var noteTitleTextField: UITextField!
+    var photoTakingHelper: PhotoTakingHelper?
     var note: Account?
     
     override func viewDidLoad() {
@@ -27,12 +28,15 @@ class DisplayNoteViewController: UIViewController {
                 let newNote = Account()
                 newNote.title = noteTitleTextField.text ?? ""
                 newNote.content = noteContentTextView.text ?? ""
+                note.category = "Note"
+                newNote.modificationTime = NSDate()
                 RealmHelper.updateAccount(note, newAccount: newNote)
             } else {
                 // if note does not exist, create new note
                 let note = Account()
                 note.title = noteTitleTextField.text ?? ""
                 note.content = noteContentTextView.text ?? ""
+                note.category = "Note" ?? ""
                 note.modificationTime = NSDate()
                 // 2
                 RealmHelper.addAccount(note)

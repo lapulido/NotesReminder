@@ -37,6 +37,7 @@ class AddAccountViewController: UIViewController {
                 let newAccount = Account()
                 newAccount.title = serviceTextField.text ?? ""
                 newAccount.username = usernameTextField.text ?? ""
+                newAccount.category = "Account"
                 if let password = passwordTextField.text {
                     newAccount.password = password
                 }
@@ -51,6 +52,7 @@ class AddAccountViewController: UIViewController {
                 let account = Account()
                 account.title = serviceTextField.text ?? ""
                 account.username = usernameTextField.text ?? ""
+                account.category = "Account" ?? ""
                 if let password = passwordTextField.text {
                     account.password = password
                 }
@@ -78,10 +80,6 @@ class AddAccountViewController: UIViewController {
         }
         
         passwordTextField.text = String(randomString)
-    }
-    
-    @IBAction func lockAccount(sender: AnyObject) {
-        
     }
     
     // 
