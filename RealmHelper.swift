@@ -2,8 +2,8 @@
 //  RealmHelper.swift
 //  MakeSchoolNotes
 //
-//  Created by Sahith Bhamidipati on 6/22/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Created by Pulido on 7/21/16.
+//  Copyright © 2016 Make School. All rights reserved.
 //
 
 import Foundation

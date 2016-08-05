@@ -2,8 +2,8 @@
 //  AccountTableViewController.swift
 //  Passlet
 //
-//  Created by Sahith Bhamidipati on 7/6/16.
-//  Copyright © 2016 Sahith Bhamidipati. All rights reserved.
+//  Created by Pulido on 7/21/16.
+//  Copyright © 2016 Make School. All rights reserved.
 //
 
 import UIKit
@@ -81,14 +81,12 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
         cell.accountLabel.text = account.title
         cell.categoryLabel.text = account.category
         
+        // tags used to distinguish between notes and accounts
         if account.username.characters.count > 0 {
             cell.tag = 0
         } else {
             cell.tag = 1
         }
-        
-
-        
         return cell
     }
     
@@ -104,7 +102,6 @@ class AccountTableViewController: UITableViewController, UIAlertViewDelegate {
             navigationController?.pushViewController(controller!, animated: true)
         }
     }
-    
     
     // For reverting back to original view controller
     @IBAction func unwindToAccountViewController(segue: UIStoryboardSegue) {

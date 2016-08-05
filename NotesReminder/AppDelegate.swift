@@ -3,8 +3,8 @@
 //  AppDelegate.swift
 //  Passlet
 //
-//  Created by Sahith Bhamidipati on 7/5/16.
-//  Copyright © 2016 Sahith Bhamidipati. All rights reserved.
+//  Created by Pulido on 7/21/16.
+//  Copyright © 2016 Make School. All rights reserved.
 //
 
 import UIKit

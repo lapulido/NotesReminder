@@ -2,8 +2,8 @@
 //  AddAccountViewController.swift
 //  Passlet
 //
-//  Created by Sahith Bhamidipati on 7/6/16.
-//  Copyright © 2016 Sahith Bhamidipati. All rights reserved.
+//  Created by Pulido on 7/21/16.
+//  Copyright © 2016 Make School. All rights reserved.
 //
 
 import UIKit
@@ -18,10 +18,8 @@ class AddAccountViewController: UIViewController {
     
     var account: Account?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -62,11 +60,11 @@ class AddAccountViewController: UIViewController {
                     }
                 }
                 RealmHelper.addAccount(account)
-
             }
         }
         accountTableViewController.accounts = RealmHelper.retrieveAccounts()
     }
+    
     // Generates a random password
     @IBAction func generateNewPassword(sender: AnyObject) {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()"
@@ -78,7 +76,6 @@ class AddAccountViewController: UIViewController {
             let rand = arc4random_uniform(length)
             randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
         }
-        
         passwordTextField.text = String(randomString)
     }
     
@@ -99,8 +96,6 @@ class AddAccountViewController: UIViewController {
             self.serviceTextField.text = ""
             self.usernameTextField.text = ""
             self.passwordTextField.text = ""
-
+        }
     }
-    }
-
 }

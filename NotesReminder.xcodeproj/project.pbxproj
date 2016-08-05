@@ -20,6 +20,7 @@
 		355646991D2DC82700168E48 /* ShowBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355646981D2DC82700168E48 /* ShowBrowserViewController.swift */; };
 		89316F761D41715500AE9144 /* DisplayNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89316F751D41715500AE9144 /* DisplayNoteViewController.swift */; };
 		89316F791D4172DB00AE9144 /* NSDate+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89316F781D4172DB00AE9144 /* NSDate+convertToString.swift */; };
+		893DBE7E1D53DAD900A0E791 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893DBE7D1D53DAD900A0E791 /* PhotoViewController.swift */; };
 		895DDC4F1D49672E000CBBC8 /* Pods_NotesReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCF9F0D478A7126BF1B1A3 /* Pods_NotesReminder.framework */; };
 		899CFDE41D51438100003991 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899CFDE31D51438100003991 /* PhotoTakingHelper.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		4A11D15E19AACADCE82DCC04 /* Pods-NotesReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotesReminder/Pods-NotesReminder.release.xcconfig"; sourceTree = "<group>"; };
 		89316F751D41715500AE9144 /* DisplayNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayNoteViewController.swift; sourceTree = "<group>"; };
 		89316F781D4172DB00AE9144 /* NSDate+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+convertToString.swift"; sourceTree = "<group>"; };
+		893DBE7D1D53DAD900A0E791 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		899CFDE31D51438100003991 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		B8FCF9F0D478A7126BF1B1A3 /* Pods_NotesReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotesReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC2E88FB6EB1E65CDD6D38D /* Pods-NotesReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotesReminder/Pods-NotesReminder.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				355646961D2DA72C00168E48 /* AddAccountViewController.swift */,
 				355646981D2DC82700168E48 /* ShowBrowserViewController.swift */,
 				89316F751D41715500AE9144 /* DisplayNoteViewController.swift */,
+				893DBE7D1D53DAD900A0E791 /* PhotoViewController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -291,6 +294,7 @@
 				355646971D2DA72C00168E48 /* AddAccountViewController.swift in Sources */,
 				3556468E1D2D7C6800168E48 /* Account.swift in Sources */,
 				89316F791D4172DB00AE9144 /* NSDate+convertToString.swift in Sources */,
+				893DBE7E1D53DAD900A0E791 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

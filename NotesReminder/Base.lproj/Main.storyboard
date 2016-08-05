@@ -260,8 +260,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iIV-8x-l9e">
+                                <rect key="frame" x="150" y="324" width="300" height="199"/>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zwl-b8-5fg">
-                                <rect key="frame" x="148" y="112" width="300" height="84"/>
+                                <rect key="frame" x="150" y="112" width="300" height="193"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="kOt-uJ-cX5"/>
@@ -270,40 +273,87 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iIV-8x-l9e">
-                                <rect key="frame" x="141" y="282" width="300" height="200"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zNg-jC-mgO" firstAttribute="top" secondItem="ege-II-JgN" secondAttribute="bottom" constant="10" id="1b7-FD-aMP"/>
+                            <constraint firstItem="iIV-8x-l9e" firstAttribute="width" secondItem="zwl-b8-5fg" secondAttribute="width" id="4Mf-P4-dzA"/>
+                            <constraint firstItem="iIV-8x-l9e" firstAttribute="centerX" secondItem="YH1-wE-pd4" secondAttribute="centerX" id="4Xp-ow-hnh"/>
+                            <constraint firstItem="B9v-vo-rwr" firstAttribute="top" secondItem="zwl-b8-5fg" secondAttribute="bottom" constant="251" id="6fL-LI-Hz0"/>
                             <constraint firstItem="zNg-jC-mgO" firstAttribute="leading" secondItem="YH1-wE-pd4" secondAttribute="leadingMargin" constant="35" id="7Kh-RD-gsW"/>
-                            <constraint firstItem="zNg-jC-mgO" firstAttribute="centerX" secondItem="zwl-b8-5fg" secondAttribute="centerX" id="C9i-yx-YOh"/>
-                            <constraint firstItem="zwl-b8-5fg" firstAttribute="top" secondItem="zNg-jC-mgO" secondAttribute="bottom" constant="8" symbolic="YES" id="LHz-Xs-1ak"/>
+                            <constraint firstItem="zwl-b8-5fg" firstAttribute="top" secondItem="zNg-jC-mgO" secondAttribute="bottom" constant="8" id="LHz-Xs-1ak"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zNg-jC-mgO" secondAttribute="trailing" constant="38" id="Ww1-e2-pmr"/>
-                            <constraint firstItem="B9v-vo-rwr" firstAttribute="top" secondItem="zwl-b8-5fg" secondAttribute="bottom" constant="360" id="yE5-cb-sjP"/>
+                            <constraint firstItem="iIV-8x-l9e" firstAttribute="centerX" secondItem="zwl-b8-5fg" secondAttribute="centerX" id="Y7c-cr-9uR"/>
+                            <constraint firstItem="B9v-vo-rwr" firstAttribute="top" secondItem="iIV-8x-l9e" secondAttribute="bottom" constant="33" id="ncQ-tH-giZ"/>
+                            <constraint firstItem="iIV-8x-l9e" firstAttribute="top" secondItem="zwl-b8-5fg" secondAttribute="bottom" constant="19" id="qYY-UW-Gh8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="MZh-3B-bPk">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="VVn-mC-J3p">
-                            <connections>
-                                <segue destination="jXb-vn-oMs" kind="unwind" identifier="Save" unwindAction="unwindToAccountViewController:" id="yvX-pD-Ebf"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Note" id="MZh-3B-bPk">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="VVn-mC-J3p">
+                                <connections>
+                                    <segue destination="jXb-vn-oMs" kind="unwind" identifier="Save" unwindAction="unwindToAccountViewController:" id="yvX-pD-Ebf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="Camera-50" id="ZIu-mV-K5a" userLabel="Camera">
+                                <inset key="imageInsets" minX="20" minY="14" maxX="4" maxY="9"/>
+                                <connections>
+                                    <action selector="photoAction:" destination="8Ee-yz-OSb" id="Xyx-wX-BC4"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="imagePicked" destination="iIV-8x-l9e" id="Feq-Jk-To1"/>
                         <outlet property="noteContentTextView" destination="zwl-b8-5fg" id="KgS-LB-p9o"/>
                         <outlet property="noteTitleTextField" destination="zNg-jC-mgO" id="KEx-8P-GC6"/>
+                        <outlet property="view" destination="iIV-8x-l9e" id="9Xm-Ku-j06"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nco-XB-rzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jXb-vn-oMs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1601" y="-54"/>
+            <point key="canvasLocation" x="1601" y="-60"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="6rQ-ar-orj">
+            <objects>
+                <viewController id="Awr-LZ-GPn" customClass="PhotoViewController" customModule="NotesReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qcz-GI-SqA"/>
+                        <viewControllerLayoutGuide type="bottom" id="E0P-Ht-F8Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F4v-s1-sSs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQg-wh-s9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2277" y="-54"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qWT-Yk-YdR">
+            <objects>
+                <viewController id="aq3-wM-bZQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lZX-jY-3o3"/>
+                        <viewControllerLayoutGuide type="bottom" id="MFg-UY-qUT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z4b-QB-dLF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KE3-qq-wn2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
+        <image name="Camera-50" width="50" height="50"/>
         <image name="Lock-50" width="50" height="50"/>
         <image name="Safari-50" width="50" height="50"/>
     </resources>

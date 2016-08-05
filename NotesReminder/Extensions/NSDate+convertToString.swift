@@ -3,7 +3,7 @@
 //  Passlet
 //
 //  Created by Pulido on 7/21/16.
-//  Copyright © 2016 Sahith Bhamidipati. All rights reserved.
+//  Copyright © 2016 Make School. All rights reserved.
 //
 
 import Foundation
